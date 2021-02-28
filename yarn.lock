@@ -3017,10 +3017,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-i18next@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-8.0.1.tgz#c52643d1b99ee3d936fe50f2f14ae6f116b2f15f"
-  integrity sha512-x6oJY6CBU0jz0NFZAld0lsh8sItW43Un28CArWJMXa8W1t6yf8OQFIKZunToCSSloP/8+iMvrfRfgwsi6ljKaQ==
+next-i18next@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-8.0.2.tgz#8d594058a88b1dd843826df5454acea232eec8e4"
+  integrity sha512-8CNkDSivGa//aVFX6uYTTEPVqDfvIF0dIM7HmDx4fnzo0XcCvZ5OWJ6NvmeqykObIU8KL7H/x/kg3IUkl1JtPA==
   dependencies:
     core-js "^3"
     hoist-non-react-statics "^3.2.0"
