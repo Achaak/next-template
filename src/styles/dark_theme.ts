@@ -1,5 +1,5 @@
-import { css } from "./css";
+import { theme } from "./css";
 
-export const darkTheme = css.theme({
+export const darkTheme = theme({
   colors: {},
 })

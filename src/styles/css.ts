@@ -1,58 +1,58 @@
-import { createStyled } from "@stitches/react";
+import { createCss } from "@stitches/react";
 import { Colors } from "./colors";
 
-export const { styled, css } = createStyled({
+export const { styled, css, getCssString, global, theme } = createCss({
   prefix: "",
-  tokens: {
+  theme: {
     colors: Colors,
     fonts: {
-      $roboto: "Roboto"
+      roboto: "Roboto"
     }
   },
-  breakpoints: {
-    sm: (rule) => `@media (min-width: 640px) { ${rule} }`,
-    md: (rule) => `@media (min-width: 768px) { ${rule} }`,
-    lg: (rule) => `@media (min-width: 1024px) { ${rule} }`,
-    xl: (rule) => `@media (min-width: 1280px) { ${rule} }`,
+  media: {
+    sm: '(min-width: 640px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 1024px)',
+    xl: '(min-width: 1024px)',
   },
   utils: {
-    m: value => ({
+    m: (_config) => (value) => ({
       marginTop: value,
       marginBottom: value,
       marginLeft: value,
       marginRight: value
     }),
-    mt: value => ({
+    mt: (_config) => (value) => ({
       marginTop: value
     }),
-    mr: value => ({
+    mr: (_config) => (value) => ({
       marginRight: value
     }),
-    mb: value => ({
+    mb: (_config) => (value) => ({
       marginBottom: value
     }),
-    ml: value => ({
+    ml: (_config) => (value) => ({
       marginLeft: value
     }),
-    mx: value => ({
+    mx: (_config) => (value) => ({
       marginLeft: value,
       marginRight: value
     }),
-    my: value => ({
+    my: (_config) => (value) => ({
       marginTop: value,
       marginBottom: value
     }),
-    linearGradient: value => ({
+    linearGradient: (_config) => (value) => ({
       backgroundImage: `linear-gradient(${value})`
     }),
 
-    gridCols: value => ({
+    gridCols: (_config) => (value) => ({
       display: "grid",
       gridTemplateColumns: `repeat(${value}, minmax(0, 1fr))`,
       width: "100%",
       height: "auto",
     }),
-    col: value => {
+    col: (_config) => (value: number | string) => {
       if(!value) return {}
       
       const split = value.toString().split(' ')
@@ -64,7 +64,7 @@ export const { styled, css } = createStyled({
   }
 });
 
-export const globalStyles = css.global({
+export const globalStyles = global({
   h1: { margin: 0 },
   "html, body, #__next": {
     color: "text",

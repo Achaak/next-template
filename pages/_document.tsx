@@ -1,8 +1,25 @@
 import React from "react";
 import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
-import { css } from "@/styles/css";
+import { getCssString } from "@/styles/css";
 
 class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    try {
+      const initialProps = await Document.getInitialProps(ctx);
+
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssString() }} />
+          </>
+        ),
+      };
+    } finally {
+    }
+  }
+
   render() {
     return (
       <Html>
@@ -20,31 +37,5 @@ class MyDocument extends Document {
     )
   }
 }
-
-MyDocument.getInitialProps = async (ctx: DocumentContext) => {
-  const originalRenderPage = ctx.renderPage;
-
-  let extractedStyles: string[] = [];
-
-  ctx.renderPage = () => {
-    const { styles, result } = css.getStyles(originalRenderPage);
-    extractedStyles = styles;
-    return result;
-  };
-
-  const initialProps = await Document.getInitialProps(ctx);
-
-  return {
-    ...initialProps,
-    styles: (
-      <>
-        {initialProps.styles}
-        {extractedStyles.map((content, index) => (
-          <style key={index}>{content}</style>
-        ))}
-      </>
-    )
-  };
-};
 
 export default MyDocument;
