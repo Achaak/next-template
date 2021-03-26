@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap --config custom-next-sitemap.js"
   },
   "dependencies": {
     "@stitches/react": "0.1.4",
