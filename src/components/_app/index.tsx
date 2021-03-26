@@ -15,17 +15,6 @@ const Containers = [
 const App: React.FC = ({ children }) => {
   const router = useRouter()
 
-  useEffect(() => {
-    initVH()
-  }, [])
-
-  const initVH = () => {
-    window.addEventListener('resize', () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
-  }
-
   const getContent = () => {
     for (let i = 0; i < Containers.length; i++) {
       const { path, Container } = Containers[i]
