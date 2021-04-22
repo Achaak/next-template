@@ -1,1 +1,1 @@
-export const log = (str: string) => console.log(str);
+export const log = (str: string): void => console.log(str)

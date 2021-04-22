@@ -1,3 +1,4 @@
-export type State = {};
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type State = {}
 
-export const state: State = {};
+export const state: State = {}

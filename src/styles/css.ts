@@ -1,13 +1,13 @@
-import { createCss } from "@stitches/react";
-import { Colors } from "./colors";
+import { createCss } from '@stitches/react'
+import { Colors } from './colors'
 
 export const { styled, css, getCssString, global, theme } = createCss({
-  prefix: "",
+  prefix: '',
   theme: {
     colors: Colors,
     fonts: {
-      roboto: "Roboto"
-    }
+      roboto: 'Roboto',
+    },
   },
   media: {
     sm: '(min-width: 640px)',
@@ -16,70 +16,70 @@ export const { styled, css, getCssString, global, theme } = createCss({
     xl: '(min-width: 1280px)',
   },
   utils: {
-    m: (_config) => (value) => ({
+    m: () => (value: number | string) => ({
       marginTop: value,
       marginBottom: value,
       marginLeft: value,
-      marginRight: value
+      marginRight: value,
     }),
-    mt: (_config) => (value) => ({
-      marginTop: value
-    }),
-    mr: (_config) => (value) => ({
-      marginRight: value
-    }),
-    mb: (_config) => (value) => ({
-      marginBottom: value
-    }),
-    ml: (_config) => (value) => ({
-      marginLeft: value
-    }),
-    mx: (_config) => (value) => ({
-      marginLeft: value,
-      marginRight: value
-    }),
-    my: (_config) => (value) => ({
+    mt: () => (value: number | string) => ({
       marginTop: value,
-      marginBottom: value
     }),
-    linearGradient: (_config) => (value) => ({
-      backgroundImage: `linear-gradient(${value})`
+    mr: () => (value: number | string) => ({
+      marginRight: value,
+    }),
+    mb: () => (value: number | string) => ({
+      marginBottom: value,
+    }),
+    ml: () => (value: number | string) => ({
+      marginLeft: value,
+    }),
+    mx: () => (value: number | string) => ({
+      marginLeft: value,
+      marginRight: value,
+    }),
+    my: () => (value: number | string) => ({
+      marginTop: value,
+      marginBottom: value,
+    }),
+    linearGradient: () => (value) => ({
+      backgroundImage: `linear-gradient(${value})`,
     }),
 
-    gridCols: (_config) => (value) => ({
-      display: "grid",
+    gridCols: () => (value) => ({
+      display: 'grid',
       gridTemplateColumns: `repeat(${value}, minmax(0, 1fr))`,
-      width: "100%",
-      height: "auto",
+      width: '100%',
+      height: 'auto',
     }),
-    col: (_config) => (value: number | string) => {
-      if(!value) return {}
-      
+    col: () => (value: number | string) => {
+      if (!value) return {}
+
       const split = value.toString().split(' ')
 
       return {
-        gridColumn: `${split[1] || "auto"} / span ${split[0]}`
+        gridColumn: `${split[1] || 'auto'} / span ${split[0]}`,
       }
     },
-  }
-});
+  },
+})
 
 export const globalStyles = global({
   h1: { margin: 0 },
-  "html, body, #__next": {
-    color: "text",
-    fontFamily: "$roboto",
-    minWidth: 300
+  'html, body, #__next': {
+    color: 'text',
+    fontFamily: '$roboto',
+    minWidth: 300,
   },
-  "*": {
+  '*': {
     margin: 0,
     padding: 0,
-    boxSizing: "border-box",
+    boxSizing: 'border-box',
   },
-  "li": {
-    listStyle: "none"
+  li: {
+    listStyle: 'none',
   },
-  "a": {
-    textDecoration: "none"
+  a: {
+    textDecoration: 'none',
   },
-});
+})
