@@ -1,14 +1,13 @@
-import { DefaultSeo } from "next-seo";
-import { AppProps } from "next/app";
-import React from "react";
-import Head from "next/head";
-import SEO from "next-seo.config";
+import { DefaultSeo } from 'next-seo'
+import { AppProps } from 'next/app'
+import React from 'react'
+import Head from 'next/head'
+import SEO from 'next-seo.config'
 import { appWithTranslation } from 'next-i18next'
-import dynamic from "next/dynamic";
-import { globalStyles } from "@/styles/css";
-const AppContainer = dynamic(() => import("@/components/_app"));
+import { globalStyles } from '@/styles/css'
+import { App } from '@/components/_app'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   globalStyles()
 
   return (
@@ -24,17 +23,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
         <meta name="theme-color" content="#ffffff" />
 
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <DefaultSeo {...SEO} />
-      <AppContainer>
+      <App>
         <Component {...pageProps} />
-      </AppContainer>
+      </App>
     </>
   )
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp)

@@ -1,5 +1,1 @@
-import Container from "./default"
-
-export {
-  Container,
-}
+export * from './Container'

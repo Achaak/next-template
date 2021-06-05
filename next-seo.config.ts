@@ -11,8 +11,8 @@ const seo: NextSeoProps = {
     site: '@site',
     cardType: 'summary_large_image',
   },
-  title: "",
-  description: ""
-};
+  title: '',
+  description: '',
+}
 
 export default seo

@@ -1,5 +1,1 @@
-export const globalTranslateFiles = [
-  "common", 
-  "words",
-  "modals"
-]
+export const globalTranslateFiles = ['common', 'words', 'modals']

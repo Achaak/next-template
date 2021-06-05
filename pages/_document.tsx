@@ -1,11 +1,15 @@
-import React from "react";
-import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
-import { getCssString } from "@/styles/css";
+import React from 'react'
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { getCssString } from '@/styles/css'
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext): Promise<{
+    styles: JSX.Element
+    html: string
+    head?: (JSX.Element | null)[] | undefined
+  }> {
     try {
-      const initialProps = await Document.getInitialProps(ctx);
+      const initialProps = await Document.getInitialProps(ctx)
 
       return {
         ...initialProps,
@@ -15,19 +19,17 @@ class MyDocument extends Document {
             <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssString() }} />
           </>
         ),
-      };
+      }
     } finally {
+      //
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Html>
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=block"
-            rel="stylesheet"
-          />
+          <link href="/fonts/fonts.css" rel="stylesheet" type="text/css" />
         </Head>
         <body>
           <Main />
@@ -38,4 +40,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+export default MyDocument

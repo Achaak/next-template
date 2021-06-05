@@ -1,5 +1,5 @@
-import { OnInitialize } from "overmind";
+import { OnInitialize } from 'overmind'
 
-export const onInitialize: OnInitialize = async () => {
+export const onInitialize: OnInitialize = async (): Promise<void> => {
   //
-};
+}

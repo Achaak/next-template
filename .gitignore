@@ -41,3 +41,11 @@ yarn-error.log*
 
 /public/sitemap.xml
 /public/robots.txt
+
+# Yarn Berry
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
