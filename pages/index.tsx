@@ -3,11 +3,18 @@ import { GetStaticProps } from 'next'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { NextSeo } from 'next-seo'
+import { useTranslation } from 'next-i18next'
 
-const Home = (): JSX.Element => {
+const Home: React.FC = () => {
+  const { t } = useTranslation(['common'])
+
   return (
     <>
-      <NextSeo description={'hello'} defaultTitle={'hello'} title={'hello'} />
+      <NextSeo
+        description={t('common:seo.description')}
+        defaultTitle={t('home:seo.defaultTitle')}
+        title={t('home:seo.defaultTitle')}
+      />
     </>
   )
 }
