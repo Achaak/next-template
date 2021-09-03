@@ -5739,50 +5739,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"admin-panel@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "admin-panel@workspace:."
-  dependencies:
-    "@stitches/react": 1.0.0
-    "@storybook/addon-actions": ^6.3.7
-    "@storybook/addon-essentials": ^6.3.7
-    "@storybook/addon-links": ^6.3.7
-    "@storybook/builder-webpack5": ^6.3.7
-    "@storybook/react": ^6.3.7
-    "@trivago/prettier-plugin-sort-imports": ^2.0.4
-    "@types/node": ^16.7.10
-    "@types/react": ^17.0.19
-    "@types/react-toast-notifications": ^2.4.1
-    "@types/yup": ^0.29.13
-    "@typescript-eslint/eslint-plugin": ^4.30.0
-    "@typescript-eslint/parser": ^4.30.0
-    eslint: ^7.32.0
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-jsx-a11y: ^6.4.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.25.1
-    eslint-plugin-react-hooks: ^4.2.0
-    formik: ^2.2.9
-    husky: ^7.0.2
-    next: 11.1.2
-    next-i18next: ^8.6.0
-    next-pwa: ^5.3.1
-    next-seo: ^4.26.0
-    next-sitemap: ^1.6.164
-    overmind: ^28.0.1
-    overmind-react: 29.0.1
-    prettier: ^2.3.2
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-loading-skeleton: ^2.2.0
-    react-spinners: ^0.11.0
-    react-toast-notifications: ^2.5.1
-    typescript: ^4.4.2
-    webpack: ^5.51.2
-    yup: ^0.32.9
-  languageName: unknown
-  linkType: soft
-
 "agent-base@npm:6":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -12723,6 +12679,50 @@ fsevents@~2.3.1:
   checksum: 6134ef0ce5a459094bd082f6e7a91abfb9ece007dd51f05eb8c72a06490f3615de462433518a34c200b554f073d1561e9aa5f46a9ca90e7b11b72b60dc1d83df
   languageName: node
   linkType: hard
+
+"next-template@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "next-template@workspace:."
+  dependencies:
+    "@stitches/react": 1.0.0
+    "@storybook/addon-actions": ^6.3.7
+    "@storybook/addon-essentials": ^6.3.7
+    "@storybook/addon-links": ^6.3.7
+    "@storybook/builder-webpack5": ^6.3.7
+    "@storybook/react": ^6.3.7
+    "@trivago/prettier-plugin-sort-imports": ^2.0.4
+    "@types/node": ^16.7.10
+    "@types/react": ^17.0.19
+    "@types/react-toast-notifications": ^2.4.1
+    "@types/yup": ^0.29.13
+    "@typescript-eslint/eslint-plugin": ^4.30.0
+    "@typescript-eslint/parser": ^4.30.0
+    eslint: ^7.32.0
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.25.1
+    eslint-plugin-react-hooks: ^4.2.0
+    formik: ^2.2.9
+    husky: ^7.0.2
+    next: 11.1.2
+    next-i18next: ^8.6.0
+    next-pwa: ^5.3.1
+    next-seo: ^4.26.0
+    next-sitemap: ^1.6.164
+    overmind: ^28.0.1
+    overmind-react: 29.0.1
+    prettier: ^2.3.2
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-loading-skeleton: ^2.2.0
+    react-spinners: ^0.11.0
+    react-toast-notifications: ^2.5.1
+    typescript: ^4.4.2
+    webpack: ^5.51.2
+    yup: ^0.32.9
+  languageName: unknown
+  linkType: soft
 
 "next@npm:11.1.2":
   version: 11.1.2
