@@ -1,5 +1,5 @@
 {
-  "name": "admin-panel",
+  "name": "next-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@stitches/react": "1.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
     "formik": "^2.2.9",
+    "husky": "^7.0.2",
     "next": "11.1.2",
     "next-i18next": "^8.6.0",
     "next-pwa": "^5.3.1",

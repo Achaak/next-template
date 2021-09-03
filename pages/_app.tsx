@@ -1,11 +1,11 @@
-import { DefaultSeo } from 'next-seo'
-import { AppProps } from 'next/app'
-import React from 'react'
-import Head from 'next/head'
-import SEO from 'next-seo.config'
-import { appWithTranslation } from 'next-i18next'
-import { globalStyles } from '@/styles/css'
 import { App } from '@/components/_app'
+import { globalStyles } from '@/styles/css'
+import { appWithTranslation } from 'next-i18next'
+import { DefaultSeo } from 'next-seo'
+import SEO from 'next-seo.config'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import React from 'react'
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   globalStyles()

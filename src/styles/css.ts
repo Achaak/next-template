@@ -1,6 +1,6 @@
-import { createStitches, CSS as CSSStitches } from '@stitches/react'
 import { Colors } from './colors'
 import { Shadows } from './shadows'
+import { createStitches, CSS as CSSStitches } from '@stitches/react'
 
 export const stitchesConfig = createStitches({
   prefix: '',

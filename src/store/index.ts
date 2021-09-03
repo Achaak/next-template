@@ -1,3 +1,4 @@
+import * as user from './user'
 import { IContext } from 'overmind'
 import {
   createStateHook,
@@ -6,8 +7,6 @@ import {
   createReactionHook,
 } from 'overmind-react'
 import { namespaced } from 'overmind/config'
-
-import * as user from './user'
 
 export const config = namespaced({
   user,

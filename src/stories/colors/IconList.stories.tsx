@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-
 import { ColorExample } from './ColorList'
+import { Story, Meta } from '@storybook/react'
 
 export default {
   title: 'Colors/List',
