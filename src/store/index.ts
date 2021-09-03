@@ -1,21 +1,22 @@
-import { createHook } from 'overmind-react'
-import * as user from './user'
+import { IContext } from 'overmind'
+import {
+  createStateHook,
+  createActionsHook,
+  createEffectsHook,
+  createReactionHook,
+} from 'overmind-react'
 import { namespaced } from 'overmind/config'
-import { createOvermind, IConfig } from 'overmind'
+
+import * as user from './user'
 
 export const config = namespaced({
   user,
 })
 
-declare module 'overmind' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface Config extends IConfig<typeof config> {
-    //
-  }
-}
+export type Context = IContext<typeof config>
+export type ContextState = typeof config['state']
 
-export const overmind = createOvermind(config, {
-  devtools: true, // defaults to 'localhost:3031'
-})
-
-export const useOvermind = createHook<typeof config>()
+export const useAppState = createStateHook<Context>()
+export const useActions = createActionsHook<Context>()
+export const useEffects = createEffectsHook<Context>()
+export const useReaction = createReactionHook<Context>()

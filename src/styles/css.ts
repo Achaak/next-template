@@ -1,8 +1,8 @@
-import { createCss, StitchesCss } from '@stitches/react'
+import { createStitches, CSS as CSSStitches } from '@stitches/react'
 import { Colors } from './colors'
 import { Shadows } from './shadows'
 
-export const stitchesConfig = createCss({
+export const stitchesConfig = createStitches({
   prefix: '',
   theme: {
     colors: Colors,
@@ -133,11 +133,11 @@ export const stitchesConfig = createCss({
   },
 })
 
-export const { styled, css, global, keyframes, getCssString, config, theme } = stitchesConfig
+export const { styled, css, globalCss, keyframes, getCssText, config, createTheme } = stitchesConfig
 
-export type CSS = StitchesCss<typeof stitchesConfig>
+export type CSS = CSSStitches<typeof stitchesConfig>
 
-export const globalStyles = global({
+export const globalStyles = globalCss({
   h1: { margin: 0 },
   'html, body, #__next': {
     color: '$BLACK',

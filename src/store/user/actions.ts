@@ -1,1 +1,5 @@
-export const log = (str: string): void => console.log(str)
+import { Context } from '..'
+
+export const onInitializeOvermind = async ({ state }: Context): Promise<void> => {
+  console.log(state.user.empty)
+}
