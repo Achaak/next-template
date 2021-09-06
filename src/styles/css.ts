@@ -133,7 +133,18 @@ export const stitchesConfig = createStitches({
   },
 })
 
-export const { styled, css, globalCss, keyframes, getCssText, config, createTheme } = stitchesConfig
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  config,
+  createTheme,
+  prefix,
+  reset,
+  theme,
+} = stitchesConfig
 
 export type CSS = CSSStitches<typeof stitchesConfig>
 
