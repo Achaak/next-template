@@ -40,7 +40,7 @@ export const stitchesConfig = createStitches({
     xl: '(min-width: 1280px)',
   },
   utils: {
-    customGap:(value: number) => ({
+    customGap: (value: number) => ({
       '@supports not (gap: 10px)': {
         '& > *': {
           margin: value / 2,
@@ -50,7 +50,7 @@ export const stitchesConfig = createStitches({
         gap: value,
       },
     }),
-    customColumnGap:(value: number) => ({
+    customColumnGap: (value: number) => ({
       '@supports not (gap: 10px)': {
         '& > *': {
           marginLeft: value / 2,
@@ -61,7 +61,7 @@ export const stitchesConfig = createStitches({
         columnGap: `${value}px`,
       },
     }),
-    customRowGap:(value: number) => ({
+    customRowGap: (value: number) => ({
       '@supports not (gap: 10px)': {
         '& > *': {
           marginTop: value / 2,
@@ -72,7 +72,7 @@ export const stitchesConfig = createStitches({
         gap: value,
       },
     }),
-    br:(value: 1 | 2 | 3 | 4 | 'round') => {
+    br: (value: 1 | 2 | 3 | 4 | 'round') => {
       switch (value) {
         case 1:
           return {
@@ -96,43 +96,43 @@ export const stitchesConfig = createStitches({
           }
       }
     },
-    m:(value: number | string) => ({
+    m: (value: number | string) => ({
       marginTop: value,
       marginBottom: value,
       marginLeft: value,
       marginRight: value,
     }),
-    mt:(value: number | string) => ({
+    mt: (value: number | string) => ({
       marginTop: value,
     }),
-    mr:(value: number | string) => ({
+    mr: (value: number | string) => ({
       marginRight: value,
     }),
-    mb:(value: number | string) => ({
+    mb: (value: number | string) => ({
       marginBottom: value,
     }),
-    ml:(value: number | string) => ({
+    ml: (value: number | string) => ({
       marginLeft: value,
     }),
-    mx:(value: number | string) => ({
+    mx: (value: number | string) => ({
       marginLeft: value,
       marginRight: value,
     }),
-    my:(value: number | string) => ({
+    my: (value: number | string) => ({
       marginTop: value,
       marginBottom: value,
     }),
-    linearGradient:(value: number | string) => ({
+    linearGradient: (value: number | string) => ({
       backgroundImage: `linear-gradient(${value})`,
     }),
 
-    gridCols:(value: number | string) => ({
+    gridCols: (value: number | string) => ({
       display: 'grid',
       gridTemplateColumns: `repeat(${value}, minmax(0, 1fr))`,
       width: '100%',
       height: 'auto',
     }),
-    col:(value: number | string) => {
+    col: (value: number | string) => {
       if (!value) return {}
 
       const split = value.toString().split(' ')
