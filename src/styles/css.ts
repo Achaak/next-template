@@ -1,5 +1,16 @@
+import { BorderStyles } from './borderStyles'
+import { BorderWidths } from './borderWidths'
 import { Colors } from './colors'
+import { FontSizes } from './fontSizes'
+import { FontWeights } from './fontWeights'
+import { LetterSpacings } from './letterSpacings'
+import { LineHeights } from './lineHeights'
+import { Radii } from './radii'
 import { Shadows } from './shadows'
+import { Sizes } from './sizes'
+import { Space } from './space'
+import { Transitions } from './transitions'
+import { ZIndices } from './zIndices'
 import { createStitches, CSS as CSSStitches } from '@stitches/react'
 
 export const stitchesConfig = createStitches({
@@ -10,17 +21,17 @@ export const stitchesConfig = createStitches({
       roboto: 'Roboto',
     },
     shadows: Shadows,
-    fontSizes: {},
-    space: {},
-    sizes: {},
-    fontWeights: {},
-    lineHeights: {},
-    letterSpacings: {},
-    borderWidths: {},
-    borderStyles: {},
-    radii: {},
-    zIndices: {},
-    transitions: {},
+    fontSizes: FontSizes,
+    space: Space,
+    sizes: Sizes,
+    fontWeights: FontWeights,
+    lineHeights: LineHeights,
+    letterSpacings: LetterSpacings,
+    borderWidths: BorderWidths,
+    borderStyles: BorderStyles,
+    radii: Radii,
+    zIndices: ZIndices,
+    transitions: Transitions,
   },
   media: {
     sm: '(min-width: 640px)',
