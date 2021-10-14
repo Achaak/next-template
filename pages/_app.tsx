@@ -1,5 +1,10 @@
 import { App } from '@/components/_app'
+import { AppRouter } from '@/server/routers/_app'
 import { globalStyles } from '@/styles/css'
+import { getBaseUrl } from '@/utils/getBaseUrl'
+import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
+import { loggerLink } from '@trpc/client/links/loggerLink'
+import { withTRPC } from '@trpc/next'
 import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import SEO from 'next-seo.config'
@@ -7,11 +12,6 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
 import superjson from 'superjson'
-import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
-import { loggerLink } from '@trpc/client/links/loggerLink'
-import { withTRPC } from '@trpc/next'
-import { getBaseUrl } from '@/utils/getBaseUrl'
-import { AppRouter } from '@/server/routers/_app'
 
 declare global {
   interface Window {

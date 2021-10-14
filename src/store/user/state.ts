@@ -1,7 +1,9 @@
+import { User } from '@prisma/client'
+
 export type State = {
-  empty: null
+  users: User[] | null
 }
 
 export const state: State = {
-  empty: null,
+  users: null,
 }

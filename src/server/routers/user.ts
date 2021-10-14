@@ -10,9 +10,8 @@ export const userRouter = createRouter()
   // create
   .mutation('add', {
     input: z.object({
-      id: z.string().uuid().optional(),
-      title: z.string().min(1).max(32),
-      text: z.string().min(1),
+      firstname: z.string().min(1).max(32),
+      lastname: z.string().uuid().optional(),
     }),
     async resolve({ ctx, input }) {
       const user = await ctx.prisma.user.create({
@@ -32,7 +31,8 @@ export const userRouter = createRouter()
       return ctx.prisma.user.findMany({
         select: {
           id: true,
-          title: true,
+          firstname: true,
+          lastname: true,
         },
       })
     },
@@ -47,10 +47,8 @@ export const userRouter = createRouter()
         where: { id },
         select: {
           id: true,
-          title: true,
-          text: true,
-          createdAt: true,
-          updatedAt: true,
+          firstname: true,
+          lastname: true,
         },
       })
       if (!user) {
@@ -67,8 +65,8 @@ export const userRouter = createRouter()
     input: z.object({
       id: z.string().uuid(),
       data: z.object({
-        title: z.string().min(1).max(32).optional(),
-        text: z.string().min(1).optional(),
+        firstname: z.string().min(1).max(32),
+        lastname: z.string().uuid().optional(),
       }),
     }),
     async resolve({ ctx, input }) {
