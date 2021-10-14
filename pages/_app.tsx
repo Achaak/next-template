@@ -5,10 +5,43 @@ import { DefaultSeo } from 'next-seo'
 import SEO from 'next-seo.config'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
+import superjson from 'superjson'
+import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
+import { loggerLink } from '@trpc/client/links/loggerLink'
+import { withTRPC } from '@trpc/next'
+import { getBaseUrl } from '@/utils/getBaseUrl'
+import { AppRouter } from '@/server/routers/_app'
+
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    workbox: any
+  }
+}
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   globalStyles()
+
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      'serviceWorker' in navigator &&
+      window.workbox !== undefined
+    ) {
+      const wb = window.workbox
+
+      const promptNewVersionAvailable = (): void => {
+        wb.addEventListener('controlling', () => {
+          window.location.reload()
+        })
+
+        wb.messageSkipWaiting()
+      }
+
+      wb.addEventListener('waiting', promptNewVersionAvailable)
+    }
+  }, [])
 
   return (
     <>
@@ -33,4 +66,55 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   )
 }
 
-export default appWithTranslation(MyApp)
+export default withTRPC<AppRouter>({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  config() {
+    /**
+     * If you want to use SSR, you need to use the server's full URL
+     * @link https://trpc.io/docs/ssr
+     */
+    return {
+      /**
+       * @link https://trpc.io/docs/links
+       */
+      links: [
+        // adds pretty logs to your console in development and logs errors in production
+        loggerLink({
+          enabled: (opts) =>
+            process.env.NODE_ENV === 'development' ||
+            (opts.direction === 'down' && opts.result instanceof Error),
+        }),
+        httpBatchLink({
+          url: `${getBaseUrl()}/api/trpc`,
+        }),
+      ],
+      /**
+       * @link https://trpc.io/docs/data-transformers
+       */
+      transformer: superjson,
+      /**
+       * @link https://react-query.tanstack.com/reference/QueryClient
+       */
+      // queryClientConfig: { defaultOptions: { queries: { staleTime: 60 } } },
+    }
+  },
+  /**
+   * @link https://trpc.io/docs/ssr
+   */
+  ssr: true,
+  /**
+   * Set headers or status code when doing SSR
+   */
+  responseMeta({ clientErrors }) {
+    if (clientErrors.length) {
+      // propagate http first error from API calls
+      return {
+        status: clientErrors[0].data?.httpStatus ?? 500,
+      }
+    }
+
+    // for app caching with SSR see https://trpc.io/docs/caching
+
+    return {}
+  },
+})(appWithTranslation(MyApp))

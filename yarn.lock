@@ -2610,6 +2610,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.9.0":
+  version: 7.15.4
+  resolution: "@babel/runtime@npm:7.15.4"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: c40825430400e47c19b97e4142d5315d2910305b9714d44a711472587ee2fd4521fdba5f02ddd9df3902f5e988d9854fa83f4da1e0c091f70f6983fa52480606
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.10.4, @babel/template@npm:^7.12.7":
   version: 7.12.7
   resolution: "@babel/template@npm:7.12.7"
@@ -3361,6 +3370,27 @@ __metadata:
   version: 2.9.2
   resolution: "@popperjs/core@npm:2.9.2"
   checksum: a5916302e706b7dfbbbcd8728bafc1682b450d5ec70dd10da84a07c89a419fa72f83cbf990798589e6e69e1b520d6768176ea4bd360d7450d08a2fbc25a14e1c
+  languageName: node
+  linkType: hard
+
+"@prisma/client@npm:3.2.1":
+  version: 3.2.1
+  resolution: "@prisma/client@npm:3.2.1"
+  dependencies:
+    "@prisma/engines-version": 3.2.1-1.b71d8cb16c4ddc7e3e9821f42fd09b0f82d7934c
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: f602e2bfb08d4af5c751fc7c8ee7322be6fa74da6442e4028ee4d04dafff4bc6f4a14eb518f5483b70166fc40643faae1b8b7501f0c50994832325ccb6ee0ea9
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:3.2.1-1.b71d8cb16c4ddc7e3e9821f42fd09b0f82d7934c":
+  version: 3.2.1-1.b71d8cb16c4ddc7e3e9821f42fd09b0f82d7934c
+  resolution: "@prisma/engines-version@npm:3.2.1-1.b71d8cb16c4ddc7e3e9821f42fd09b0f82d7934c"
+  checksum: ab6a798ac36f8ef4b7b5a897d365953a5a2f00c651433e01c5a0af5c7963a567e4a8db30ab57e43d70238f87a0856805a7bb159a28fc4ef054228aeb39dddaad
   languageName: node
   linkType: hard
 
@@ -4558,6 +4588,58 @@ __metadata:
   peerDependencies:
     prettier: 2.x
   checksum: e31ef74a80228f131bb310158e69463d5e730f5b3d999bbe37c544878589654dcda647dedfb7f0db293671dd159c2928dc07e58683939196c662d14059e1de62
+  languageName: node
+  linkType: hard
+
+"@trpc/client@npm:^9.9.1":
+  version: 9.9.1
+  resolution: "@trpc/client@npm:9.9.1"
+  dependencies:
+    "@babel/runtime": ^7.9.0
+    "@trpc/server": ^9.9.1
+  checksum: 0564a7232833e62dc0a932161a1f4e2bbd367c679e4e413cd3dc129b4c58b3ca670787a6fb47f526923682d695967e0b297a9eea2ea0d5a3dcb759d6dd002370
+  languageName: node
+  linkType: hard
+
+"@trpc/next@npm:^9.9.1":
+  version: 9.9.1
+  resolution: "@trpc/next@npm:9.9.1"
+  dependencies:
+    "@babel/runtime": ^7.9.0
+    "@trpc/client": ^9.9.1
+    "@trpc/react": ^9.9.1
+    "@trpc/server": ^9.9.1
+    react-ssr-prepass: ^1.4.0
+  peerDependencies:
+    next: ^11.1.0
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-query: ^3.0.0
+  checksum: f17ba8c3ed6d8c49529f9458bceff32f08cc926fe87ab478ddfc8f883f7cb66916f3f6bff30e47f8566a13a6be92451c6ee087d05fbd149450871853cf0384af
+  languageName: node
+  linkType: hard
+
+"@trpc/react@npm:^9.9.1":
+  version: 9.9.1
+  resolution: "@trpc/react@npm:9.9.1"
+  dependencies:
+    "@babel/runtime": ^7.9.0
+    "@trpc/client": ^9.9.1
+    "@trpc/server": ^9.9.1
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    react-query: ^3.0.0
+  checksum: 15f0568688072fabbb0af2608de337239b71f0d5e49f065220ef546de610de02c0ba619798ab99d8a158e40fd55cf8da3acb6eb308f6fefacc84250fe42344fa
+  languageName: node
+  linkType: hard
+
+"@trpc/server@npm:^9.9.1":
+  version: 9.9.1
+  resolution: "@trpc/server@npm:9.9.1"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: 996487da23707abc990c31cabe04788f827f57e86743b65d4e0bf9b665cc852bd8de61f522f8e832c875ecc2db86b8ee160256b953c29f608d8d34a90a703116
   languageName: node
   linkType: hard
 
@@ -12684,6 +12766,7 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "next-template@workspace:."
   dependencies:
+    "@prisma/client": 3.2.1
     "@stitches/react": 1.0.0
     "@storybook/addon-actions": ^6.3.7
     "@storybook/addon-essentials": ^6.3.7
@@ -12691,6 +12774,10 @@ fsevents@~2.3.1:
     "@storybook/builder-webpack5": ^6.3.7
     "@storybook/react": ^6.3.7
     "@trivago/prettier-plugin-sort-imports": ^2.0.4
+    "@trpc/client": ^9.9.1
+    "@trpc/next": ^9.9.1
+    "@trpc/react": ^9.9.1
+    "@trpc/server": ^9.9.1
     "@types/node": ^16.7.10
     "@types/react": ^17.0.19
     "@types/react-toast-notifications": ^2.4.1
@@ -12718,9 +12805,11 @@ fsevents@~2.3.1:
     react-loading-skeleton: ^2.2.0
     react-spinners: ^0.11.0
     react-toast-notifications: ^2.5.1
+    superjson: ^1.7.5
     typescript: ^4.4.2
     webpack: ^5.51.2
     yup: ^0.32.9
+    zod: ^3.9.8
   languageName: unknown
   linkType: soft
 
@@ -14523,6 +14612,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"react-ssr-prepass@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "react-ssr-prepass@npm:1.4.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+  checksum: dc7db3f15128ca2facca44a0088de1378ffc2852ad0852eeb1b063350a5019a0353f8d4a0bbfdd0a68aaf7ed865c08ecfbf042b882492a4c5bca2b64535df257
+  languageName: node
+  linkType: hard
+
 "react-syntax-highlighter@npm:^13.5.3":
   version: 13.5.3
   resolution: "react-syntax-highlighter@npm:13.5.3"
@@ -16139,6 +16237,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"superjson@npm:^1.7.5":
+  version: 1.7.5
+  resolution: "superjson@npm:1.7.5"
+  dependencies:
+    debug: ^4.3.1
+    lodash.clonedeep: ^4.5.0
+  checksum: 629c3cf3343203f8ab585046a7dfb9c730df3e08b00f4e78a029ddf148f93c22c65e0455dc4a7c6a72b3228dd9a8b39ff46ed5845ca555c14e92d85e02d2cae5
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^5.3.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
@@ -16631,7 +16739,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.3.0":
+"tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
@@ -17969,6 +18077,13 @@ typescript@^4.4.2:
     property-expr: ^2.0.4
     toposort: ^2.0.2
   checksum: 3f33850913a237fb7e59b0b5c71d2cc6bdb1d6b2b01fc24c53ec68b35ad2b95cd49f735532117136495cb57f0ec58f0a7e1f1c55fad685555c7114155170f1ea
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.9.8":
+  version: 3.9.8
+  resolution: "zod@npm:3.9.8"
+  checksum: 6e88fd13f77284e877a0664d373dfc3662199a57e4fad1b01d1c913c45ba670d40db4fafe577161b7f9f3bc2d80aff8bf7a2ffa49108d0e40b886ad13ee747ba
   languageName: node
   linkType: hard
 
