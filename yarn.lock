@@ -3474,12 +3474,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stitches/react@npm:1.2.5":
-  version: 1.2.5
-  resolution: "@stitches/react@npm:1.2.5"
+"@stitches/react@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@stitches/react@npm:1.0.0"
   peerDependencies:
     react: ">= 16.3.0"
-  checksum: 96b2ba837aeb36f9ab0479bfcad1a3fae99b3b43966aed7fffe2e32637808a29ed2f7e8d1bfcb7a327b6b39ba82ef822d80efad8f26cabc3f8ff177be095621e
+  checksum: 61b70044959241db3155a9bf4f1244a590fb7a1c1f7d122a85cc0916d8e1c055429a4cf702e34675d67d2ff79ca6cb322ebafc7167bd4c756249ce849d4c2fad
   languageName: node
   linkType: hard
 
@@ -13037,18 +13037,18 @@ fsevents@~2.3.1:
   dependencies:
     "@prisma/client": 3.2.1
     "@stitches/react": 1.0.0
-    "@storybook/addon-actions": ^6.3.7
-    "@storybook/addon-essentials": ^6.3.7
-    "@storybook/addon-links": ^6.3.7
-    "@storybook/builder-webpack5": ^6.3.7
-    "@storybook/react": ^6.3.7
+    "@storybook/addon-actions": ^6.3.10
+    "@storybook/addon-essentials": ^6.3.10
+    "@storybook/addon-links": ^6.3.10
+    "@storybook/builder-webpack5": ^6.3.10
+    "@storybook/react": ^6.3.10
     "@trivago/prettier-plugin-sort-imports": ^2.0.4
     "@trpc/client": ^9.9.1
     "@trpc/next": ^9.9.1
     "@trpc/react": ^9.9.1
     "@trpc/server": ^9.9.1
-    "@types/node": ^16.7.10
-    "@types/react": ^17.0.19
+    "@types/node": ^16.10.3
+    "@types/react": ^17.0.27
     "@types/react-toast-notifications": ^2.4.1
     "@types/yup": ^0.29.13
     "@typescript-eslint/eslint-plugin": ^4.33.0
@@ -13075,8 +13075,8 @@ fsevents@~2.3.1:
     react-spinners: ^0.11.0
     react-toast-notifications: ^2.5.1
     superjson: ^1.7.5
-    typescript: ^4.4.2
-    webpack: ^5.51.2
+    typescript: ^4.4.3
+    webpack: ^5.58.1
     yup: ^0.32.9
     zod: ^3.9.8
   languageName: unknown
