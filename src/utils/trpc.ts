@@ -5,6 +5,7 @@ import { getBaseUrl } from '@/utils/getBaseUrl'
 import { createTRPCClient } from '@trpc/client'
 import { createReactQueryHooks } from '@trpc/react'
 import type { inferProcedureOutput } from '@trpc/server'
+import superjson from 'superjson'
 
 /**
  * A set of strongly-typed React hooks from your `AppRouter` type signature with `createReactQueryHooks`.
@@ -22,4 +23,5 @@ export type inferQueryOutput<TRouteKey extends keyof AppRouter['_def']['queries'
 
 export const trpcClient = createTRPCClient<AppRouter>({
   url: `${getBaseUrl()}/api/trpc`,
+  transformer: superjson,
 })
