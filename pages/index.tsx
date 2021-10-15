@@ -1,5 +1,6 @@
 import { globalTranslateFiles } from '@/config/translate'
 import { GetStaticProps } from 'next'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { NextSeo } from 'next-seo'
@@ -7,6 +8,7 @@ import React from 'react'
 
 const Home: React.FC = () => {
   const { t } = useTranslation(['common'])
+  const { data: session } = useSession()
 
   return (
     <>
@@ -15,6 +17,18 @@ const Home: React.FC = () => {
         defaultTitle={t('home:seo.defaultTitle')}
         title={t('home:seo.defaultTitle')}
       />
+
+      {session ? (
+        <>
+          Signed in as {session.user?.email} <br />
+          <button onClick={() => signOut()}>Sign out</button>
+        </>
+      ) : (
+        <>
+          Not signed in <br />
+          <button onClick={() => signIn()}>Sign in</button>
+        </>
+      )}
     </>
   )
 }

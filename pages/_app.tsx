@@ -5,6 +5,7 @@ import { getBaseUrl } from '@/utils/getBaseUrl'
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
 import { loggerLink } from '@trpc/client/links/loggerLink'
 import { withTRPC } from '@trpc/next'
+import { SessionProvider } from 'next-auth/react'
 import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import SEO from 'next-seo.config'
@@ -60,7 +61,9 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       </Head>
       <DefaultSeo {...SEO} />
       <App>
-        <Component {...pageProps} />
+        <SessionProvider session={pageProps.session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </App>
     </>
   )
