@@ -12,11 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <NextSeo
-        description={t('common:seo.description')}
-        defaultTitle={t('home:seo.defaultTitle')}
-        title={t('home:seo.defaultTitle')}
-      />
+      <NextSeo description={t('common:seo.description')} title={t('home:seo.title')} />
 
       {session ? (
         <>
