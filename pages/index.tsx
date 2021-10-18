@@ -1,10 +1,6 @@
 import { globalTranslateFiles } from '@/config/translate'
-<<<<<<< HEAD
-import { GetStaticProps, NextPage } from 'next'
-=======
 import { GetStaticProps } from 'next'
 import { useSession, signIn, signOut } from 'next-auth/react'
->>>>>>> b0002fd1c9e23bffb74b4ab9bf29db5783c3deab
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { NextSeo } from 'next-seo'
