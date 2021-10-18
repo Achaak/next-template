@@ -12,6 +12,7 @@ const seo: NextSeoProps = {
     cardType: 'summary_large_image',
   },
   title: '',
+  defaultTitle: '',
   description: '',
 }
 
