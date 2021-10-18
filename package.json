@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "postbuild": "next-sitemap --config custom-next-sitemap.js",
+   
+    "build": "next build && yarn build:sitemap",
+    "build:sitemap": "next-sitemap --config custom-next-sitemap.js",
     "build-storybook": "build-storybook",
     "dev": "next dev",
     "format": "prettier --write \"./**/*.{ts,tsx}\" && npx sort-package-json",
