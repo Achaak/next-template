@@ -6,7 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 
-const Home: React.FC = () => {
+const Home: NextPage = () => {
   const { t } = useTranslation(['common'])
   const { data: session } = useSession()
 
