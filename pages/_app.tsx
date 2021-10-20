@@ -1,4 +1,4 @@
-import { ProviderOvermind } from '@/components'
+import { ProviderOvermind } from '@/components/global/providerOvermind'
 import TypesafeI18n from '@/i18n/i18n-react'
 import { Locales } from '@/i18n/i18n-types'
 import { detectLocale } from '@/i18n/i18n-util'

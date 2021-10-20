@@ -1,5 +1,5 @@
 import { NextPageWithLayout } from './_app'
-import { Layout } from '@/components'
+import { LayoutDefault } from '@/components/layouts/default'
 import { I18nContext } from '@/i18n/i18n-react'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { NextSeo } from 'next-seo'
@@ -29,7 +29,7 @@ const Home: NextPageWithLayout = () => {
 }
 
 Home.getLayout = (page: React.ReactElement) => {
-  return <Layout>{page}</Layout>
+  return <LayoutDefault>{page}</LayoutDefault>
 }
 
 export default Home

@@ -1,7 +1,14 @@
 const withPWA = require('next-pwa')
-const { i18n } = require('./next-i18next.config')
+const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = withPWA({
+const { i18n } = require('./next-i18next.config')
+//const { createSecureHeaders } = require('next-secure-headers')
+
+const plugins = [withBundleAnalyzer, withPWA]
+const nextConfig = {
   i18n,
   experimental: { esmExternals: true },
   pwa: {
@@ -9,25 +16,21 @@ module.exports = withPWA({
     dest: 'public',
   },
   // async headers() {
+  //   if (process.env.NODE_ENV === 'development') return []
   //   return [
   //     {
-  //       source: '/',
-  //       headers: [
-  //         {
-  //           key: 'x-frame-options',
-  //           value: 'deny',
-  //         }, {
-  //           key: 'Content-Security-Policy',
-  //           value: "default-src 'self' *.starter.com",
-  //         }, {
-  //           key: 'X-XSS-Protection',
-  //           value: "1; mode=block",
-  //         }, {
-  //           key: 'X-Content-Type-Options',
-  //           value: "nosniff",
+  //       source: '/(.*)?',
+  //       headers: createSecureHeaders({
+  //         frameGuard: 'deny',
+  //         nosniff: 'nosniff',
+  //         sanitize: '1; mode=block',
+  //         contentSecurityPolicy: {
+  //           directives: {},
   //         },
-  //       ],
+  //       }),
   //     },
   //   ]
-  // }
-})
+  // },
+}
+
+module.exports = withPlugins(plugins, nextConfig)
