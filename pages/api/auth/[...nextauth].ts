@@ -12,8 +12,23 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    session({ session }) {
-      return session // The return type will match the one returned in `useSession()`
+    async session({ session, user }) {
+      const userRes = await prisma.user.findUnique({
+        where: { id: user.id },
+        select: {
+          id: true,
+          email: true,
+          image: true,
+          name: true,
+        },
+      })
+
+      if (!userRes) return session
+
+      return {
+        ...session,
+        user: userRes,
+      }
     },
   },
 })

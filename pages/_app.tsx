@@ -1,17 +1,20 @@
-import { App } from '@/components/_app'
+import { ProviderOvermind } from '@/components'
+import TypesafeI18n from '@/i18n/i18n-react'
+import { Locales } from '@/i18n/i18n-types'
+import { detectLocale } from '@/i18n/i18n-util'
 import { AppRouter } from '@/server/routers/_app'
 import { globalStyles } from '@/styles/css'
 import { getBaseUrl } from '@/utils/getBaseUrl'
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
 import { loggerLink } from '@trpc/client/links/loggerLink'
 import { withTRPC } from '@trpc/next'
+import { NextPage } from 'next'
 import { SessionProvider } from 'next-auth/react'
-import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import SEO from 'next-seo.config'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import superjson from 'superjson'
 
 declare global {
@@ -21,8 +24,24 @@ declare global {
   }
 }
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+export type NextPageWithLayout<T extends Record<string, unknown> = Record<string, unknown>> =
+  NextPage<T> & {
+    getLayout?: (page: React.ReactElement) => React.ReactNode
+  }
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element => {
+  const [locale, setLocale] = useState<Locales | undefined>(undefined)
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   globalStyles()
+
+  useEffect(() => {
+    setLocale(detectLocale(() => [router.locale || 'en']))
+  }, [router.locale])
 
   useEffect(() => {
     if (
@@ -60,11 +79,13 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <DefaultSeo {...SEO} />
-      <App>
-        <SessionProvider session={pageProps.session}>
-          <Component {...pageProps} />
-        </SessionProvider>
-      </App>
+      {locale ? (
+        <TypesafeI18n initialLocale={locale}>
+          <SessionProvider session={pageProps.session}>
+            <ProviderOvermind>{getLayout(<Component {...pageProps} />)}</ProviderOvermind>
+          </SessionProvider>
+        </TypesafeI18n>
+      ) : null}
     </>
   )
 }
@@ -120,4 +141,4 @@ export default withTRPC<AppRouter>({
 
     return {}
   },
-})(appWithTranslation(MyApp))
+})(MyApp)

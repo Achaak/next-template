@@ -7,7 +7,7 @@ const ContainerDOM = styled('div', {
   flexDirection: 'column',
 })
 
-export const Container: React.FC = ({ children }) => {
+export const Layout: React.FC = ({ children }) => {
   return (
     <ProviderOvermind>
       <ContainerDOM>{children}</ContainerDOM>

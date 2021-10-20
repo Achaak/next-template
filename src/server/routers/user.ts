@@ -31,8 +31,9 @@ export const userRouter = createRouter()
       return ctx.prisma.user.findMany({
         select: {
           id: true,
-          firstname: true,
-          lastname: true,
+          email: true,
+          image: true,
+          name: true,
         },
       })
     },
@@ -47,8 +48,9 @@ export const userRouter = createRouter()
         where: { id },
         select: {
           id: true,
-          firstname: true,
-          lastname: true,
+          email: true,
+          image: true,
+          name: true,
         },
       })
       if (!user) {

@@ -1,18 +1,17 @@
-import { globalTranslateFiles } from '@/config/translate'
-import { GetStaticProps } from 'next'
+import { NextPageWithLayout } from './_app'
+import { Layout } from '@/components'
+import { I18nContext } from '@/i18n/i18n-react'
 import { useSession, signIn, signOut } from 'next-auth/react'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { NextSeo } from 'next-seo'
-import React from 'react'
+import React, { useContext } from 'react'
 
-const Home: NextPage = () => {
-  const { t } = useTranslation(['common'])
+const Home: NextPageWithLayout = () => {
   const { data: session } = useSession()
+  const { LL } = useContext(I18nContext)
 
   return (
     <>
-      <NextSeo description={t('common:seo.description')} title={t('home:seo.title')} />
+      <NextSeo description={LL.common.seo.description()} title={LL.common.seo.title()} />
 
       {session ? (
         <>
@@ -29,10 +28,8 @@ const Home: NextPage = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale as string, [...globalTranslateFiles])),
-  },
-})
+Home.getLayout = (page: React.ReactElement) => {
+  return <Layout>{page}</Layout>
+}
 
 export default Home
