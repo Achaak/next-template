@@ -164,6 +164,7 @@ export const globalStyles = globalCss({
   'html, body, #__next': {
     color: '$BLACK',
     fontFamily: '$roboto',
+    scrollBehavior: 'smooth',
   },
   '*': {
     margin: 0,
