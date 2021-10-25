@@ -29,7 +29,6 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
     '@typescript-eslint/no-parameter-properties': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'warn',
-    '@typescript-eslint/no-use-before-define': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-empty-interface': 'warn',
