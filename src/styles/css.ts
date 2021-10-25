@@ -164,7 +164,6 @@ export const globalStyles = globalCss({
   'html, body, #__next': {
     color: '$BLACK',
     fontFamily: '$roboto',
-    minWidth: 300,
   },
   '*': {
     margin: 0,
