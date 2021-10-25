@@ -2,9 +2,18 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    browser: true,
     es6: true,
   },
-  parserOptions: { ecmaVersion: 8 },
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'prettier'],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   ignorePatterns: ['node_modules/*', '.next/*', '.out/*', '!.prettierrc.js'],
   extends: [
     'eslint:recommended',
@@ -14,23 +23,39 @@ module.exports = {
     'plugin:@next/next/recommended',
   ],
   rules: {
+    'prettier/prettier': 'error',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
-    '@typescript-eslint/explicit-function-return-type': [
+    '@typescript-eslint/no-parameter-properties': 'warn',
+    '@typescript-eslint/explicit-function-return-type': 'warn',
+    '@typescript-eslint/no-use-before-define': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+    '@typescript-eslint/naming-convention': [
       'warn',
       {
-        allowExpressions: true,
-        allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
       },
-    ],
-
-    'prettier/prettier': [
-      'error',
-      {},
       {
-        usePrettierrc: true,
+        selector: 'parameter',
+        format: ['camelCase', 'PascalCase'],
+        leadingUnderscore: 'allow',
+      },
+
+      {
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: ['camelCase'],
+        leadingUnderscore: 'require',
+      },
+
+      {
+        selector: 'typeLike',
+        format: ['PascalCase'],
       },
     ],
   },
