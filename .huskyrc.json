@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "npx lint-staged",
-    "pre-push": "npx sort-package-json"
+    "pre-commit": "yarn dlx lint-staged",
+    "pre-push": "yarn dlx sort-package-json"
   }
 }
