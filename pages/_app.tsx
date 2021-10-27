@@ -1,18 +1,18 @@
 import { ProviderOvermind } from '@/components/global/providerOvermind'
 import TypesafeI18n from '@/i18n/i18n-react'
-import { Locales } from '@/i18n/i18n-types'
+import type { Locales } from '@/i18n/i18n-types'
 import { detectLocale } from '@/i18n/i18n-util'
-import { AppRouter } from '@/server/routers/_app'
+import type { AppRouter } from '@/server/routers/_app'
 import { globalStyles } from '@/styles/css'
 import { getBaseUrl } from '@/utils/getBaseUrl'
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
 import { loggerLink } from '@trpc/client/links/loggerLink'
 import { withTRPC } from '@trpc/next'
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 import { SessionProvider } from 'next-auth/react'
 import { DefaultSeo } from 'next-seo'
 import SEO from 'next-seo.config'
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import superjson from 'superjson'
@@ -35,7 +35,7 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element => {
   const [locale, setLocale] = useState<Locales | undefined>(undefined)
-  const getLayout = Component.getLayout ?? ((page) => page)
+  const getLayout = Component.getLayout ?? ((page): React.ReactElement => page)
 
   globalStyles()
 
