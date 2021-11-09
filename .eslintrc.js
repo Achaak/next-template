@@ -14,7 +14,7 @@ module.exports = {
       jsx: true,
     },
   },
-  ignorePatterns: ['node_modules/*', '.next/*', '.out/*', '!.prettierrc.js'],
+  ignorePatterns: ['node_modules/*', '.next/*', '.out/*', '!.prettierrc.js', '*.mjs', '*.js'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
