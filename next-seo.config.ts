@@ -1,4 +1,4 @@
-import { NextSeoProps } from 'next-seo'
+import type { NextSeoProps } from 'next-seo'
 
 const seo: NextSeoProps = {
   openGraph: {
