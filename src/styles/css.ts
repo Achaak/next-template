@@ -1,3 +1,4 @@
+import { borderRadius } from './borderRadius'
 import { BorderStyles } from './borderStyles'
 import { BorderWidths } from './borderWidths'
 import { Colors } from './colors'
@@ -11,7 +12,8 @@ import { Sizes } from './sizes'
 import { Space } from './space'
 import { Transitions } from './transitions'
 import { ZIndices } from './zIndices'
-import { createStitches, CSS as CSSStitches } from '@stitches/react'
+import { createStitches } from '@stitches/react'
+import type { CSS as CSSStitches } from '@stitches/react'
 
 export const stitchesConfig = createStitches({
   prefix: '',
@@ -72,30 +74,7 @@ export const stitchesConfig = createStitches({
         gap: value,
       },
     }),
-    br: (value: 1 | 2 | 3 | 4 | 'round') => {
-      switch (value) {
-        case 1:
-          return {
-            borderRadius: 4,
-          }
-        case 2:
-          return {
-            borderRadius: 8,
-          }
-        case 3:
-          return {
-            borderRadius: 16,
-          }
-        case 4:
-          return {
-            borderRadius: 32,
-          }
-        case 'round':
-          return {
-            borderRadius: 5000,
-          }
-      }
-    },
+    ...borderRadius,
     m: (value: number | string) => ({
       marginTop: value,
       marginBottom: value,
