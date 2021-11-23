@@ -8619,6 +8619,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-browser@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "detect-browser@npm:5.2.1"
+  checksum: 6ba4cc9f45c8ae970e8b2c2cdfa13b1d9298e30eec85c801aeaed2f001b2ebd38352e1122d54ae4c85434ec61bf6491900156ff4d1d0acf32eced53cde9a8f38
+  languageName: node
+  linkType: hard
+
 "detect-node@npm:^2.0.4, detect-node@npm:^2.1.0":
   version: 2.1.0
   resolution: "detect-node@npm:2.1.0"
@@ -13622,6 +13629,7 @@ fsevents@~2.3.1:
     "@types/yup": ^0.29.13
     "@typescript-eslint/eslint-plugin": ^5.3.0
     "@typescript-eslint/parser": ^5.3.0
+    detect-browser: ^5.2.1
     eslint: <8.0.0
     eslint-config-next: ^12.0.3
     eslint-config-prettier: ^8.3.0

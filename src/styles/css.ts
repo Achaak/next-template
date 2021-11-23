@@ -4,6 +4,7 @@ import { BorderWidths } from './borderWidths'
 import { Colors } from './colors'
 import { FontSizes } from './fontSizes'
 import { FontWeights } from './fontWeights'
+import { gap } from './gap'
 import { LetterSpacings } from './letterSpacings'
 import { LineHeights } from './lineHeights'
 import { Radii } from './radii'
@@ -42,38 +43,7 @@ export const stitchesConfig = createStitches({
     xl: '(min-width: 1280px)',
   },
   utils: {
-    customGap: (value: number) => ({
-      '@supports not (gap: 10px)': {
-        '& > *': {
-          margin: value / 2,
-        },
-      },
-      '@supports (gap: 10px)': {
-        gap: value,
-      },
-    }),
-    customColumnGap: (value: number) => ({
-      '@supports not (gap: 10px)': {
-        '& > *': {
-          marginLeft: value / 2,
-          marginRight: value / 2,
-        },
-      },
-      '@supports (gap: 10px)': {
-        columnGap: `${value}px`,
-      },
-    }),
-    customRowGap: (value: number) => ({
-      '@supports not (gap: 10px)': {
-        '& > *': {
-          marginTop: value / 2,
-          marginBottom: value / 2,
-        },
-      },
-      '@supports (gap: 10px)': {
-        gap: value,
-      },
-    }),
+    ...gap,
     ...borderRadius,
     m: (value: number | string) => ({
       marginTop: value,

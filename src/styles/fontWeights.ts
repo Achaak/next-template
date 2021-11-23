@@ -6,7 +6,7 @@ export const FontWeights = {
   MEDIUM: 500,
   'SEMI-BOLD': 600,
   BOLD: 700,
-  'EXTRA-BOLD': 700,
+  'EXTRA-BOLD': 800,
   BLACK: 900,
 }
 
