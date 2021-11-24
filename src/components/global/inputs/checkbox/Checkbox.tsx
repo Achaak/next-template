@@ -1,9 +1,9 @@
 import { BxCheck } from '../../icons/bx-check'
 import { Text } from '../../text'
 import { styled } from '@/styles'
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import * as LabelPrimitive from '@radix-ui/react-label'
-import type { ReactNode } from 'react'
+import type { AriaRole, ChangeEvent, ReactNode } from 'react'
+import { useEffect, useState } from 'react'
 import { forwardRef } from 'react'
 
 const Container = styled('div', {
@@ -31,11 +31,9 @@ const Element = styled('div', {
   alignItems: 'center',
 })
 
-const CheckboxContainer = styled(CheckboxPrimitive.Root, {
+const StyledCheckbox = styled('label', {
   all: 'unset',
   backgroundColor: 'white',
-  width: 20,
-  height: 20,
   borderRadius: 4,
   display: 'flex',
   alignItems: 'center',
@@ -44,6 +42,11 @@ const CheckboxContainer = styled(CheckboxPrimitive.Root, {
   border: '2px solid',
 
   variants: {
+    focus: {
+      true: {
+        borderColor: '$PRIMARY_DARKER',
+      },
+    },
     borderColor: {
       primary: {
         borderColor: '$PRIMARY',
@@ -58,6 +61,20 @@ const CheckboxContainer = styled(CheckboxPrimitive.Root, {
       },
       lg: {
         border: '3px solid',
+      },
+    },
+    size: {
+      sm: {
+        width: 16,
+        height: 16,
+      },
+      md: {
+        width: 20,
+        height: 20,
+      },
+      lg: {
+        width: 24,
+        height: 24,
       },
     },
     borderRadius: {
@@ -82,11 +99,17 @@ const CheckboxContainer = styled(CheckboxPrimitive.Root, {
   },
 })
 
-const CheckboxIndicator = styled(CheckboxPrimitive.Indicator, {
-  color: '$PRIMARY',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+const HiddenCheckbox = styled('input', {
+  border: 0,
+  clip: 'rect(0 0 0 0)',
+  clippath: 'inset(50%)',
+  height: 1,
+  margin: -1,
+  overflow: 'hidden',
+  padding: 0,
+  position: 'absolute',
+  whiteSpace: 'nowrap',
+  width: 1,
 })
 
 const Label = styled(LabelPrimitive.Root, {
@@ -97,8 +120,8 @@ const Label = styled(LabelPrimitive.Root, {
 
 export interface CheckboxProps {
   defaultChecked?: boolean
-  onChange?: (checked: CheckboxPrimitive.CheckedState) => void
-  setFieldValue?: (id: string, value: CheckboxPrimitive.CheckedState) => void
+  onChange?: (checked: ChangeEvent<HTMLInputElement>) => void
+  setFieldValue?: (id: string, value: boolean) => void
   id?: string
   label?: string | ReactNode
   bgColor?: 'primary'
@@ -110,9 +133,13 @@ export interface CheckboxProps {
   borderSize?: 'sm' | 'md' | 'lg'
   borderRadius?: 1 | 2 | 3 | 'round'
   fontSize?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg'
+  checked?: boolean
+  className?: string
+  role?: AriaRole
 }
 
-export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       defaultChecked,
@@ -127,40 +154,65 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       borderSize,
       borderRadius,
       fontSize,
+      checked,
+      size,
+      className,
+      role,
     },
     ref
   ) => {
-    const handleChange = (checked: CheckboxPrimitive.CheckedState): void => {
+    const [checkedState, setCheckedState] = useState(checked || false)
+    const [focused, setFocused] = useState(false)
+
+    useEffect(() => {
+      if (checked === undefined) return
+
+      setCheckedState(checked)
+    }, [checked])
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
       if (disableAutoCheck) {
         return
       }
 
+      setCheckedState(e.target.checked)
+
       if (setFieldValue && id) {
-        setFieldValue(id, checked)
+        setFieldValue(id, e.target.checked)
       }
 
       if (onChange) {
-        onChange(checked)
+        onChange(e)
       }
     }
 
     return (
       <Container fontSize={fontSize}>
         <Element>
-          <CheckboxContainer
+          <HiddenCheckbox
+            type="checkbox"
+            checked={checkedState}
             ref={ref}
+            onChange={handleChange}
+            onFocus={(): void => setFocused(true)}
+            onBlur={(): void => setFocused(false)}
             id={id}
+            className={className}
+            role={role}
+          />
+
+          <StyledCheckbox
+            htmlFor={id}
             defaultChecked={defaultChecked}
-            onCheckedChange={handleChange}
             borderRadius={borderRadius}
             borderColor={borderColor}
             borderSize={borderSize}
             error={error}
+            size={size}
+            focus={focused}
           >
-            <CheckboxIndicator>
-              <BxCheck size={20} />
-            </CheckboxIndicator>
-          </CheckboxContainer>
+            {checkedState && <BxCheck size={20} />}
+          </StyledCheckbox>
 
           {label ? <Label htmlFor={id}>{label}</Label> : null}
         </Element>
@@ -179,4 +231,5 @@ Checkbox.displayName = 'Checkbox'
 Checkbox.defaultProps = {
   bgColor: 'primary',
   bgColorChecked: 'green',
+  size: 'md',
 }
