@@ -9,7 +9,7 @@ const { i18n } = require('./next-i18next.config')
 
 const plugins = [withBundleAnalyzer, withPWA]
 const nextConfig = {
-  swcMinify: true,
+  swcMinify: false,
   i18n,
   pwa: {
     disable: process.env.NODE_ENV === 'development',
