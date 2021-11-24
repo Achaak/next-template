@@ -1,5 +1,5 @@
 import * as user from './user'
-import { IContext } from 'overmind'
+import type { IContext } from 'overmind'
 import {
   createStateHook,
   createActionsHook,

@@ -1,4 +1,4 @@
-import { Context } from '..'
+import type { Context } from '..'
 import { trpcClient } from '@/utils/trpc'
 
 export const getUser = async ({ state }: Context): Promise<void> => {

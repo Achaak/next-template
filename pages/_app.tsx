@@ -5,6 +5,7 @@ import { detectLocale } from '@/i18n/i18n-util'
 import type { AppRouter } from '@/server/routers/_app'
 import { globalStyles } from '@/styles/css'
 import { getBaseUrl } from '@/utils/getBaseUrl'
+import { IdProvider } from '@radix-ui/react-id'
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
 import { loggerLink } from '@trpc/client/links/loggerLink'
 import { withTRPC } from '@trpc/next'
@@ -80,11 +81,13 @@ const MyApp = ({ Component, pageProps, router }: AppPropsWithLayout): JSX.Elemen
       </Head>
       <DefaultSeo {...SEO} />
       {locale ? (
-        <TypesafeI18n initialLocale={locale}>
-          <SessionProvider session={pageProps.session}>
-            <ProviderOvermind>{getLayout(<Component {...pageProps} />)}</ProviderOvermind>
-          </SessionProvider>
-        </TypesafeI18n>
+        <IdProvider>
+          <TypesafeI18n initialLocale={locale}>
+            <SessionProvider session={pageProps.session}>
+              <ProviderOvermind>{getLayout(<Component {...pageProps} />)}</ProviderOvermind>
+            </SessionProvider>
+          </TypesafeI18n>
+        </IdProvider>
       ) : null}
     </>
   )
