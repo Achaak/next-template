@@ -11,7 +11,7 @@ const IconContainer = styled('div', {
 export const ModalVerificationHeader: React.FC = () => {
   return (
     <IconContainer>
-      <BxsQuestionCircle colorName="white" size={100} />
+      <BxsQuestionCircle colorName="WHITE" size={100} />
     </IconContainer>
   )
 }

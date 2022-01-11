@@ -25,12 +25,12 @@ export const BxsChevronLeft: React.FC<SVGComponentIcon> = ({
         height={size}
         viewBox="0 0 24 24"
         css={{
+          fill: color || `$${colorName}`,
+
           // TODO
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(styles?.svg as any),
         }}
-        colorFill={colorName}
-        fill={color}
       >
         <Path d="M13.939 4.939 6.879 12l7.06 7.061 2.122-2.122L11.121 12l4.94-4.939z" />
       </SVG>

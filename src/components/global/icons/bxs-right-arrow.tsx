@@ -25,12 +25,12 @@ export const BxsRightArrow: React.FC<SVGComponentIcon> = ({
         height={size}
         viewBox="0 0 24 24"
         css={{
+          fill: color || `$${colorName}`,
+
           // TODO
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(styles?.svg as any),
         }}
-        colorFill={colorName}
-        fill={color}
       >
         <Path d="M5.536 21.886a1.004 1.004 0 001.033-.064l13-9a1 1 0 000-1.644l-13-9A1 1 0 005 3v18a1 1 0 00.536.886z" />
       </SVG>

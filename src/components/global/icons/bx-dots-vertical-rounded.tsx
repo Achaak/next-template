@@ -25,12 +25,12 @@ export const BxDotsVerticalRounded: React.FC<SVGComponentIcon> = ({
         height={size}
         viewBox="0 0 24 24"
         css={{
+          fill: color || `$${colorName}`,
+
           // TODO
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(styles?.svg as any),
         }}
-        colorFill={colorName}
-        fill={color}
       >
         <Path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
       </SVG>

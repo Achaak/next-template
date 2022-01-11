@@ -11,7 +11,7 @@ const IconContainer = styled('div', {
 export const ModalErrorHeader: React.FC = () => {
   return (
     <IconContainer>
-      <BxsXCircle colorName="white" size={100} />
+      <BxsXCircle colorName="WHITE" size={100} />
     </IconContainer>
   )
 }

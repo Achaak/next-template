@@ -27,12 +27,12 @@ export const BxCircleTreeQuarter: React.FC<SVGComponentIcon> = ({
         height={size}
         viewBox="0 0 45 45"
         css={{
+          fill: color || `$${colorName}`,
+
           // TODO
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(styles?.svg as any),
         }}
-        colorFill={colorName}
-        fill={color}
       >
         {innerShadow && getInnerShadow({ ...innerShadow, id: 'shadow-BxCircleTreeQuater' })}
 

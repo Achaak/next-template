@@ -1,6 +1,5 @@
 import type { GetInnerShadow } from './utils'
-import type { CSS } from '@/styles'
-import type { ColorType } from '@/types/color'
+import type { ColorsType, CSS } from '@/styles'
 
 export type SVGComponentIcon = {
   className?: string
@@ -10,7 +9,7 @@ export type SVGComponentIcon = {
     svg?: CSS
   }
   color?: string
-  colorName?: ColorType
+  colorName?: ColorsType
   innerShadow?: GetInnerShadow
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }
